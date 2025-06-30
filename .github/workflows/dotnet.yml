@@ -27,6 +27,6 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings 
+      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true
       env:
        UITARGETENVIRONMENT: demo
