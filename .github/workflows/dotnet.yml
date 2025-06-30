@@ -27,6 +27,12 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true
+      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=TestResults\TestResults.trx"
       env:
        UITARGETENVIRONMENT: demo
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: (!cancelled())
+      with:
+        files: |
+         TestResults/**/*.trx
