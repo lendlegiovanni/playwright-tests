@@ -35,4 +35,4 @@ jobs:
       if: (!cancelled())
       with:
         files: |
-         TestResults/**/*.trx
+         TestResults/*.trx
