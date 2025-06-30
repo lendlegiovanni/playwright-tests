@@ -1,0 +1,14 @@
+﻿global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Options;
+global using Microsoft.Playwright;
+global using Microsoft.Playwright.Xunit;
+global using Shouldly;
+global using SpreeCommerce.TestHelpers;
+global using SpreeCommerce.TestHelpers.Models;
+global using SpreeCommerce.TestHelpers.PageComponents;
+global using SpreeCommerce.TestHelpers.Pages;
+global using SpreeCommerce.Tests.Fixtures;
+global using Xunit;
+global using Xunit.Abstractions;
+global using Xunit.DependencyInjection;
