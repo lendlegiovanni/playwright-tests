@@ -4,5 +4,8 @@
 
 /CodeChallenge/.vs/CodeChallenge
 /.vs
-/CodeChallenge/SpreeCommerce/bin/Debug/net8.0
-/CodeChallenge/SpreeCommerce/obj
+/CodeChallenge/.vs/ProjectEvaluation
+/CodeChallenge/SpreeCommerce.Tests/bin
+/CodeChallenge/SpreeCommerce.TestHelpers/bin
+/CodeChallenge/SpreeCommerce.TestHelpers/obj
+/CodeChallenge/SpreeCommerce.Tests/obj
