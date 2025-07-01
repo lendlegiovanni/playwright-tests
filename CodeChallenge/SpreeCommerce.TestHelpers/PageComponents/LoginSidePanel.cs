@@ -18,7 +18,6 @@ public class LoginSidePanel(IPage page) : ILoginSidePanel
 
     public async Task ClickSignUpAsync()
     {
-        //await LoginButton.ClickAsync(new LocatorClickOptions { Trial = true }); // Ensure the panel is open before filling in the credentials
         await SignUpLink.ClickAsync();
     }
 

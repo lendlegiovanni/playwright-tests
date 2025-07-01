@@ -19,7 +19,7 @@ public class CheckoutProductTests : BaseTest
         var address = GetUserAddress();
         var cardDetails = GetCardDetails();
         InitializePages(Page);
-        await Page.GotoAsync(TestSettings.BaseUrl);
+        await GoToPage(TestSettings.BaseUrl);
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel.ClickSignUpAsync();
         await SignUpSidePanel.SignUpAsync(email, password);

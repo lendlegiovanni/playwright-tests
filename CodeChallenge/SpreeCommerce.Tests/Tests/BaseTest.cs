@@ -1,4 +1,6 @@
-﻿namespace SpreeCommerce.Tests.Tests;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace SpreeCommerce.Tests.Tests;
 
 public class BaseTest : PageTest
 {
@@ -32,6 +34,13 @@ public class BaseTest : PageTest
         CartSidePanel = new CartSidePanel(Page);
         CheckoutPage = new CheckoutPage(Page);
         OrderConfirmationPage = new OrderConfirmationPage(Page);
+    }
+
+    protected async Task GoToPage(string url)
+    {
+        await Page.GotoAsync(url);
+        await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+        output.WriteLine($"URL: {Page.Url}");
     }
 
     protected Product GetProduct()

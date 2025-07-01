@@ -17,7 +17,7 @@ public class BrowseProductTests : BaseTest
         var email = $"test{DateTime.UtcNow.Ticks}@test.com";
         var password = Guid.NewGuid().ToString("N");
         InitializePages(Page);
-        await Page.GotoAsync(TestSettings.BaseUrl);
+        await GoToPage(TestSettings.BaseUrl);
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel.ClickSignUpAsync();
         await SignUpSidePanel.SignUpAsync(email, password);

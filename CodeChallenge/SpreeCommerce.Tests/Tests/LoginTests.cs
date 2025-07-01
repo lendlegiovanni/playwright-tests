@@ -13,7 +13,7 @@ public class LoginTests : BaseTest
     {
         //Arrange
         InitializePages(Page);
-        await Page.GotoAsync(TestSettings.BaseUrl);
+        await GoToPage(TestSettings.BaseUrl);
         await HomePage.ClickUserIconAsync();
 
         //Act
@@ -28,7 +28,7 @@ public class LoginTests : BaseTest
     {
         //Arrange
         InitializePages(Page);
-        await Page.GotoAsync(TestSettings.BaseUrl);
+        await GoToPage(TestSettings.BaseUrl);
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel!.LoginAsync(TestSettings.UserEmail, TestSettings.UserPassword);
 
@@ -46,7 +46,7 @@ public class LoginTests : BaseTest
         var email = $"test{DateTime.UtcNow.Ticks}@test.com";
         var password = Guid.NewGuid().ToString("N");
         InitializePages(Page);
-        await Page.GotoAsync(TestSettings.BaseUrl);
+        await GoToPage(TestSettings.BaseUrl);
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel.ClickSignUpAsync();
 
