@@ -12,7 +12,7 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
     - name: Setup dotnet
@@ -24,15 +24,15 @@ jobs:
       run: dotnet build
     - name: Ensure browsers are installed
       working-directory: CodeChallenge/SpreeCommerce.Tests
-      run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+      run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=TestResults\TestResults.trx"
+      run: dotnet test --logger trx --settings Playwright.runsettings --filter "FullyQualifiedName~SpreeCommerce.Tests" -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true 
       env:
        UITARGETENVIRONMENT: demo
     - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v2
+      uses: EnricoMi/publish-unit-test-result-action/windows@v2
       if: (!cancelled())
       with:
         files: |
-         TestResults/*.trx
+         ${{ github.workspace }}\CodeChallenge\SpreeCommerce.Tests\TestResults\*.trx
