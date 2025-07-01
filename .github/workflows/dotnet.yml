@@ -27,7 +27,7 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=TestResults\TestResults.trx"
+      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath={{GITHUB_WORKSPACE}}/TestResults/TestResults.trx"
       env:
        UITARGETENVIRONMENT: demo
     - name: Publish Test Results
@@ -35,4 +35,4 @@ jobs:
       if: (!cancelled())
       with:
         files: |
-         TestResults/*.trx
+         {{GITHUB_WORKSPACE}}/TestResults/*.trx
