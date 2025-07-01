@@ -24,10 +24,10 @@ jobs:
       run: dotnet build
     - name: Ensure browsers are installed
       working-directory: CodeChallenge/SpreeCommerce.Tests
-      run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+      run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=${GITHUB_WORKSPACE}/TestResults/TestResults.trx"
+      run: xvfb-run dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=${{ github.workspace }}/TestResults/TestResults.trx"
       env:
        UITARGETENVIRONMENT: demo
     - name: Publish Test Results
@@ -35,4 +35,4 @@ jobs:
       if: (!cancelled())
       with:
         files: |
-         ${GITHUB_WORKSPACE}/TestResults/*.trx
+         ${{ github.workspace }}/TestResults/*.trx
