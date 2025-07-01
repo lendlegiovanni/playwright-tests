@@ -27,7 +27,7 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --settings Playwright.runsettings --filter "FullyQualifiedName~SpreeCommerce.Tests" -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true 
+      run: dotnet test --logger trx --settings Playwright.runsettings --filter "FullyQualifiedName~SpreeCommerce.Tests" -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true 
       env:
        UITARGETENVIRONMENT: demo
     - name: Publish Test Results
