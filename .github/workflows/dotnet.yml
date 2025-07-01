@@ -20,13 +20,19 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Build & Install
-      working-directory: /CodeChallenge
+      working-directory: CodeChallenge
       run: dotnet build
     - name: Ensure browsers are installed
-      working-directory: /CodeChallenge/SpreeCommerce.Tests
+      working-directory: CodeChallenge/SpreeCommerce.Tests
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
     - name: Run your tests
-      working-directory: /CodeChallenge
-      run: dotnet test --settings Playwright.runsettings 
+      working-directory: CodeChallenge
+      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=TestResults\TestResults.trx"
       env:
        UITARGETENVIRONMENT: demo
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: (!cancelled())
+      with:
+        files: |
+         TestResults/*.trx
