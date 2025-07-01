@@ -9,7 +9,7 @@ public class HomePage(IPage page) : IHomePage
     private ILocator SearchButton => page.Locator("#open-search");
     private ILocator SearchTextbox => page.Locator("#q");
     private ILocator SignedInUserIcon => page.Locator("//a[@href='/account' and not(@class)]");
-    private ILocator SignedOutUserIcon => page.Locator("//form[@action='/account/wishlist']/preceding-sibling::div//button[@data-action='click->slideover-account#toggle click@window->slideover-account#hide click->toggle-menu#hide touch->toggle-menu#hide']");
+    private ILocator SignedOutUserIcon => page.Locator("//form[@action='/account/wishlist']/preceding-sibling::div[1]//button[@data-action='click->slideover-account#toggle click@window->slideover-account#hide click->toggle-menu#hide touch->toggle-menu#hide']");
     
     public async Task ClickLoginButtonAsync()
     {

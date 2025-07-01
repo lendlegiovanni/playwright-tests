@@ -79,7 +79,7 @@ public class BaseTest : PageTest
         };
     }
 
-    public override BrowserNewContextOptions ContextOptions()
+    public BrowserNewContextOptions GetContextOptions()
     {
         return new BrowserNewContextOptions
         {

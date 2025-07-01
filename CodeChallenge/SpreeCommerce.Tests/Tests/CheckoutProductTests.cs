@@ -47,6 +47,6 @@ public class CheckoutProductTests : BaseTest
 
     public override BrowserNewContextOptions ContextOptions()
     {
-        return base.ContextOptions();
+        return GetContextOptions();
     }
 }
