@@ -45,4 +45,8 @@ public class CheckoutProductTests : BaseTest
         status.ShouldBe("Paid");
     }
 
+    public override BrowserNewContextOptions ContextOptions()
+    {
+        return base.ContextOptions();
+    }
 }

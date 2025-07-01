@@ -81,4 +81,19 @@ public class BaseTest : PageTest
         };
     }
 
+    public override BrowserNewContextOptions ContextOptions()
+    {
+        return new BrowserNewContextOptions
+        {
+            IgnoreHTTPSErrors = true,
+            ColorScheme = ColorScheme.Light,
+            ViewportSize = new ViewportSize
+            {
+                Width = 1920,
+                Height = 1080
+            },
+            BaseURL = TestSettings.BaseUrl,
+        };
+    }
+
 }

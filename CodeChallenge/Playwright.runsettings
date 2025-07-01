@@ -19,5 +19,8 @@
       <Headless>false</Headless>
       <Channel>chrome</Channel>
     </LaunchOptions>
+    <ContextOptions>
+      <IgnoreHTTPSErrors>true</IgnoreHTTPSErrors>
+    </ContextOptions>
   </Playwright>
 </RunSettings>

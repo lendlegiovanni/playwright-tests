@@ -38,4 +38,8 @@ public class BrowseProductTests : BaseTest
         items[0].Price.ShouldBe(product.Price);
     }
 
+    public override BrowserNewContextOptions ContextOptions()
+    {
+        return base.ContextOptions();
+    }
 }

@@ -57,4 +57,8 @@ public class LoginTests : BaseTest
         await Expect(Page.GetByText(MessageConstants.WelcomeToSite)).ToBeVisibleAsync();
     }
 
+    public override BrowserNewContextOptions ContextOptions()
+    {
+        return base.ContextOptions();
+    }
 }
