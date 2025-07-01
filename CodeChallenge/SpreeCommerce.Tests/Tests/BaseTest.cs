@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace SpreeCommerce.Tests.Tests;
+﻿namespace SpreeCommerce.Tests.Tests;
 
 public class BaseTest : PageTest
 {

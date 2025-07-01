@@ -18,6 +18,7 @@ public class BrowseProductTests : BaseTest
         var password = Guid.NewGuid().ToString("N");
         InitializePages(Page);
         await GoToPage(TestSettings.BaseUrl);
+        output.WriteLine(await Page.ContentAsync());
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel.ClickSignUpAsync();
         await SignUpSidePanel.SignUpAsync(email, password);
