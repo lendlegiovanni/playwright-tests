@@ -27,7 +27,7 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
     - name: Run your tests
       working-directory: CodeChallenge
-      run: xvfb-run dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=${{ github.workspace }}/TestResults/TestResults.trx"
+      run: dotnet test --settings Playwright.runsettings -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true -l "trx;LogFilePath=${{ github.workspace }}/TestResults/TestResults.trx"
       env:
        UITARGETENVIRONMENT: demo
     - name: Publish Test Results
