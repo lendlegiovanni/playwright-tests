@@ -84,7 +84,7 @@ public class BaseTest : PageTest
         return new BrowserNewContextOptions
         {
             IgnoreHTTPSErrors = true,
-            ColorScheme = ColorScheme.Light,
+            BypassCSP = true,
             ViewportSize = new ViewportSize
             {
                 Width = 1920,

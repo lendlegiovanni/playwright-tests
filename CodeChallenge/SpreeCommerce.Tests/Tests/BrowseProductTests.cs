@@ -18,7 +18,10 @@ public class BrowseProductTests : BaseTest
         var password = Guid.NewGuid().ToString("N");
         InitializePages(Page);
         await GoToPage(TestSettings.BaseUrl);
-        output.WriteLine(await Page.ContentAsync());
+        await Page.ScreenshotAsync(new PageScreenshotOptions
+        {
+            Path = $"TestScreenshots/{nameof(SignedInUser_SelectProductAndAddToCart_ShouldAddTheProductToCartSuccessfully)}.png"
+        });
         await HomePage.ClickUserIconAsync();
         await LoginSidePanel.ClickSignUpAsync();
         await SignUpSidePanel.SignUpAsync(email, password);
