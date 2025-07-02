@@ -27,14 +27,14 @@ jobs:
       run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps chromium
     - name: Run your tests
       working-directory: CodeChallenge
-      run: dotnet test --logger trx --settings Playwright.runsettings --filter "FullyQualifiedName~SpreeCommerce.Tests" -- Playwright.BrowserName=chromium Playwright.LaunchOptions.Headless=true 
+      run: dotnet test --logger trx --settings "${{ github.workspace }}\CodeChallenge\Playwright.runsettings" --filter "FullyQualifiedName~SpreeCommerce.Tests" 
       env:
        UITARGETENVIRONMENT: demo
     - uses: actions/upload-artifact@v4
       if: ${{ always() }}
       with:
        name: test-artifacts
-       path: ${{ github.workspace }}\CodeChallenge\SpreeCommerce.Tests\bin\**\TestSCreenshots
+       path: ${{ github.workspace }}\CodeChallenge\SpreeCommerce.Tests\bin\**\TestScreenshots
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action/windows@v2
       if: (!cancelled())
